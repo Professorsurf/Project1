@@ -1,0 +1,48 @@
+body {
+    background-color: greenyellow;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin: 20px 20px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: 10px solid;
+    border-color: brown;
+    background-color: rgba(255, 205, 176, 0.973);
+}
+
+.grid {
+    background-color: blanchedalmond;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: 500px;
+    height: 500px;
+}
+
+
+.mole {
+    background-image: url(mole.jpeg);
+    background-size: cover;
+  }
+
+#score{
+    width: 20vh;
+    height: 5vh;
+    border-style: solid;
+    border-color: blueviolet;
+}
+
+#timer{
+    width: 20vh;
+    height: 5vh;
+    border-style: solid;
+    border-color:   rgb(226, 43, 202);
+}
+
+
