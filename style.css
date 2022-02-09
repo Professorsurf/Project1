@@ -1,31 +1,29 @@
 body {
-    background-color: rgb(247, 133, 2);
+    background-color: rgb(13, 151, 0);
     justify-content: center;
     align-content: center;
     text-align: center;
     font-family: 'Orbitron', sans-serif;
-
+    
 }
 
 .gamedisplay {
-    margin-left: 50px;
-    background-color: yellow;
-    width: 200px;
+    margin-left: 200px;
+    background-color: rgb(255, 255, 85);
+    width: 150px;
+    border-style: solid;
+    border-width: 5px white;
     
 }
-/* .pointed{
-    width: 40px;
-    height: 30px;
-    cursor: url('mallet.png')auto;
-  } */
 
 button{
     width: 100px;
-    font-size: 15px;
+    font-size: 15px; 
     height: 30px;
     color: #fff;
     background-color: rgb(206, 3, 3);
     border-radius: 50px;
+    border-style: outset;
     font-family: 'Orbitron', sans-serif;
 }
 
@@ -63,7 +61,7 @@ h1 {
     background: url(hole.png) bottom center no-repeat;
     background-size:contain;
     content: '';
-    width: 100%;
+    width: 110%;
     height: 90px;
     position: absolute;
     z-index: 2;
@@ -75,14 +73,35 @@ h1 {
 }
 
 .mallet {
-        position: absolute;
-        z-index: 1000;
-        height: 10px;
-        top: 0;
-        left: 0;
-        transform: translate(1px, -4px)
+
+    width: 40px;
+    height: 30px;
+    cursor: url('mallet.png')auto;
+    position: absolute;
+    z-index: 1000;
+    height: 10px;
+    top: 0;
+    left: 0;
+    transform: translate(1px, -4px)
+
 }
 
 .score{
     color: rgb(0, 0, 0);  
 }
+
+/* #cursor{
+    width: 30px;
+    height: 30px;
+    background-color:rgba(250, 128, 114, 0.774);
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #fa8072;
+    transform: translate(-50%,-50%);
+    poin
+    
+/* .pointed{
+    width: 40px;
+    height: 30px;
+    cursor: url('mallet.png')auto;
+  } */

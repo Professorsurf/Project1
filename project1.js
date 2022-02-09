@@ -19,12 +19,12 @@ const moles = document.querySelectorAll('.mole');
 const highscore = document.querySelector('.highscore');
 const mallet = document.querySelector('.mallet');
 const cursorPointed = document.querySelector('.pointed');
-
+const timer = document.querySelector("timer")
 let lastHole;
-let timeUp = false;  // for character movement up and down
+
 let timeleft = 0;
 let score = 0;
-let maxscore = 0;
+// let maxscore = 0;
 
 
 // const moveCursor = (e)=> {
@@ -33,22 +33,20 @@ let maxscore = 0;
 //     cursorPointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 // }
 
-const moveCursor = (e)=> {
-window.addEventListener('mousemove', moveCursor)
-window.addEventListener("mousemove",(e) => {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;
-    cursorPointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-})
-}
 
+// window.addEventListener("mousemove",function(e){
+//     document.getElementById("mallet").style.left = e.pageX;
+//     document.getElementById("mallet").style.top = e.pageY;
+// })
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
+let timeUp = false;  // allow for character movement up and down
+
 function pop() {
 
-    const time = randomTime(1000, 2000); //sets pop up time
+    const time = randomTime(500, 1500); //sets pop up time
     const hole = randomHole(holes); 
     hole.classList.add('up'); //add the CSS class so selected mole can "pop up"
     setTimeout(() => {
@@ -67,7 +65,6 @@ function randomHole(holes){
 
     if (hole === lastHole){
         return randomHole(holes);
-        
     }
     lastHole = hole;
     console.log(lastHole)
@@ -80,12 +77,11 @@ function startGame() {
     timeUp = false;
     score = 0;
     pop();
-    setInterval(() => timeUp = true, 15000) // create countdown timer
+    setInterval(() => timeUp = true, 30000) // create countdown timer
 }
 
-
 function wack(e){
-    if(!event.isTrusted) return; 
+    if(!e.isTrusted) return; 
     console.log(wack)
     score++;          //if hit returned then score increases by 1
     this.parentNode.classList.remove('up'); //this refers to item clicked
@@ -95,12 +91,16 @@ console.log(wack)
 
 moles.forEach(mole => mole.addEventListener('click', wack))
 
-let timer = 0
-let gameOver = setInterval(() => {
-    timeUp.textContent = timeleft;
-    if (timeleft === 0) {
-        clearInterval(timer);
-    }
-})
+// let timer = 0
+// let gameOver = setInterval(() => {
+//     timeUp.textContent = timeleft;
+//     if (timeleft === 0) {
+//         clearInterval(timer);
+//     }
+// })
 
+// let timeRemaing = setInterval(() => {
+//     timer.textContent = timeleft;
+//     timeleft--;
+// }, 400000)
 
