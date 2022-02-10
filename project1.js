@@ -18,26 +18,20 @@ const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
 const highscore = document.querySelector('.highscore');
 const mallet = document.querySelector('.mallet');
-const cursorPointed = document.querySelector('.pointed');
 const timer = document.querySelector("timer")
 let lastHole;
-
 let timeleft = 0;
 let score = 0;
 // let maxscore = 0;
 
 
-// const moveCursor = (e)=> {
-//     const mouseY = e.clientY;
-//     const mouseX = e.clientX;
-//     cursorPointed.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-// }
+// window.addEventListener("mousemove",(e) => {
+//     mallet.style.left = e.pageX - 10 + "px";
+//     mallet.style.top = e.pageY - 50 + "px";
+// });
 
 
-// window.addEventListener("mousemove",function(e){
-//     document.getElementById("mallet").style.left = e.pageX;
-//     document.getElementById("mallet").style.top = e.pageY;
-// })
+  
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -80,6 +74,16 @@ function startGame() {
     setInterval(() => timeUp = true, 30000) // create countdown timer
 }
 
+// let timer = 0
+// let gameOver = setInterval(() => {
+//     timeUp.textContent = timeleft;
+//     if (timeleft === 0) {
+//         clearInterval(timer);
+//     }
+// })
+
+
+
 function wack(e){
     if(!e.isTrusted) return; 
     console.log(wack)
@@ -91,13 +95,6 @@ console.log(wack)
 
 moles.forEach(mole => mole.addEventListener('click', wack))
 
-// let timer = 0
-// let gameOver = setInterval(() => {
-//     timeUp.textContent = timeleft;
-//     if (timeleft === 0) {
-//         clearInterval(timer);
-//     }
-// })
 
 // let timeRemaing = setInterval(() => {
 //     timer.textContent = timeleft;

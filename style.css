@@ -18,8 +18,8 @@ body {
 
 button{
     width: 100px;
-    font-size: 15px; 
-    height: 30px;
+    font-size: 25px; 
+    height: 100px;
     color: #fff;
     background-color: rgb(206, 3, 3);
     border-radius: 50px;
@@ -48,6 +48,7 @@ h1 {
     width: 50%;
     height: 100%;
     transition: all 0.5s;
+    --cursor: pointer;
 }
 
 .hole{
@@ -73,35 +74,16 @@ h1 {
 }
 
 .mallet {
-
-    width: 40px;
-    height: 30px;
-    cursor: url('mallet.png')auto;
     position: absolute;
     z-index: 1000;
-    height: 10px;
+    height: 125px;
     top: 0;
     left: 0;
-    transform: translate(1px, -4px)
-
+    transform: translate(10px, px)
 }
 
 .score{
     color: rgb(0, 0, 0);  
 }
 
-/* #cursor{
-    width: 30px;
-    height: 30px;
-    background-color:rgba(250, 128, 114, 0.774);
-    position: absolute;
-    border-radius: 50%;
-    border: 2px solid #fa8072;
-    transform: translate(-50%,-50%);
-    poin
     
-/* .pointed{
-    width: 40px;
-    height: 30px;
-    cursor: url('mallet.png')auto;
-  } */
