@@ -16,22 +16,14 @@ greeting();
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
-const highscore = document.querySelector('.highscore');
+const highscoredisplay = document.querySelector('.highscore');
 const mallet = document.querySelector('.mallet');
-const timer = document.querySelector("timer")
+const timerdisplay = document.querySelector(".timer")
+let malletsound = new Audio("./bonk.mp3")
 let lastHole;
-let timeleft = 0;
 let score = 0;
-// let maxscore = 0;
+let highscore = 0;
 
-
-// window.addEventListener("mousemove",(e) => {
-//     mallet.style.left = e.pageX - 10 + "px";
-//     mallet.style.top = e.pageY - 50 + "px";
-// });
-
-
-  
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -56,7 +48,6 @@ function pop() {
 function randomHole(holes){
     const index  = Math.floor(Math.random() * holes.length);
     const hole = holes[index];
-
     if (hole === lastHole){
         return randomHole(holes);
     }
@@ -65,39 +56,63 @@ function randomHole(holes){
     return hole;
 }
 
-function startGame() {
-    console.log(startGame)
+let startTime = 5;
+const countdown= () => {
+    console.log(timerdisplay)
+    timerdisplay.innerText = startTime
+    console.log(startTime)
+    startTime--
+}
+
+const startGame = document.querySelector("#startGame");
+
+function start() {
+    console.log(start)
     scoreBoard.textContent = 0;
     timeUp = false;
     score = 0;
     pop();
-    setInterval(() => timeUp = true, 30000) // create countdown timer
+    // setInterval(() => timeUp = true, 30000)  // create countdown timer
+    // let timer = setInterval(countdown, 1000);
+    // console.log(timer)
+    const timer = setInterval(countdown, 1000);
+    countdown--;
+    timer.textContent = 0;
+    if (startTime < 1) {
+        clearInterval(timer);
+    }
 }
 
-// let timer = 0
-// let gameOver = setInterval(() => {
-//     timeUp.textContent = timeleft;
-//     if (timeleft === 0) {
-//         clearInterval(timer);
-//     }
-// })
-
-
+startGame.addEventListener("click", start)
 
 function wack(e){
     if(!e.isTrusted) return; 
-    console.log(wack)
-    score++;          //if hit returned then score increases by 1
+    score+= 10;         
     this.parentNode.classList.remove('up'); //this refers to item clicked
     scoreBoard.textContent = score;
+    
+    if (score > highscore) {
+        highscore=score
+        highscoredisplay.textContent=score
+    } else {
+        highscoredisplay.textcontent=highscore
+    }
 }
-console.log(wack)
 
 moles.forEach(mole => mole.addEventListener('click', wack))
 
+window.addEventListener("mousemove", (e) => {
+    mallet.style.left = e.pageX + 4 + "px";
+    mallet.style.top = e.pageY - 60 + "px";
+});
 
-// let timeRemaing = setInterval(() => {
-//     timer.textContent = timeleft;
-//     timeleft--;
-// }, 400000)
+window.addEventListener("click", (e) => {
+    mallet.style.transform="rotateZ(95deg) rotateY(-180deg)";
+    malletsound.play();
+    malletsound.currentTime = 0;
+    setTimeout(() => {
+        mallet.style.transform = "rotateZ(0deg) rotateY(0deg)"; 
+    })
+},10);
+
 
