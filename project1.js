@@ -8,11 +8,6 @@
 // how will each player advance to the next stage
 // once goal is reached display winner
 
-let greeting = function() {
-    console.log("Let the games begin");
-}
-greeting();
-
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
 const moles = document.querySelectorAll('.mole');
@@ -29,12 +24,13 @@ function randomTime(min, max) {
 }
 
 let timeUp = false;  // allow for character movement up and down
-
 function pop() {
-
     const time = randomTime(500, 1500); //sets pop up time
     const hole = randomHole(holes); 
     hole.classList.add('up'); //add the CSS class so selected mole can "pop up"
+    if (startTime > 0) {
+
+
     setTimeout(() => {
         hole.classList.remove('up'); //sets character to go back down
         if(!timeUp) {
@@ -42,7 +38,7 @@ function pop() {
         }
     }, time);
 }
-
+}
 
 // keep holes random and from placing character in the same place twice
 function randomHole(holes){
@@ -56,13 +52,13 @@ function randomHole(holes){
     return hole;
 }
 
-let startTime = 5;
-const countdown= () => {
-    console.log(timerdisplay)
+let startTime = 30;
+const countdown = () => {
     timerdisplay.innerText = startTime
-    console.log(startTime)
     startTime--
 }
+
+
 
 const startGame = document.querySelector("#startGame");
 
@@ -72,16 +68,15 @@ function start() {
     timeUp = false;
     score = 0;
     pop();
-    // setInterval(() => timeUp = true, 30000)  // create countdown timer
-    // let timer = setInterval(countdown, 1000);
-    // console.log(timer)
     const timer = setInterval(countdown, 1000);
-    countdown--;
-    timer.textContent = 0;
-    if (startTime < 1) {
-        clearInterval(timer);
+    const stopTimer = () => {
+        clearInterval(timer)
     }
+    setTimeout(stopTimer, 32000)
+    setTimeout(clearInterval(pop), 32000)
 }
+
+
 
 startGame.addEventListener("click", start)
 
