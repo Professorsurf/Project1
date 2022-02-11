@@ -27,4 +27,6 @@ creating image that can appear to grow and shrink into the moles hiding place.
 
 (Post - The biggest challenge was rendering a mallet that when striking an object would register a hit since the pointer position was pushed away from the side of the mallet.
 
+{Reference project1 lines 100-111: KODAKTIF youtube video was used to render the rotating mallet function}
+
 ![](2022-02-04-10-19-54.png)
