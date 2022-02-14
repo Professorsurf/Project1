@@ -19,6 +19,8 @@ let lastHole;
 let score = 0;
 let highscore = 0;
 
+
+
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -28,7 +30,7 @@ function pop() {
     const time = randomTime(500, 1500); //sets pop up time
     const hole = randomHole(holes); 
     hole.classList.add('up'); //add the CSS class so selected mole can "pop up"
-    if (startTime > 0) {
+    if (startTime >= 0) {
 
 
     setTimeout(() => {
@@ -52,13 +54,11 @@ function randomHole(holes){
     return hole;
 }
 
-let startTime = 30;
+let startTime = 29;
 const countdown = () => {
     timerdisplay.innerText = startTime
     startTime--
 }
-
-
 
 const startGame = document.querySelector("#startGame");
 
@@ -72,11 +72,9 @@ function start() {
     const stopTimer = () => {
         clearInterval(timer)
     }
-    setTimeout(stopTimer, 32000)
-    setTimeout(clearInterval(pop), 32000)
+    setTimeout(stopTimer, 31000)
+    setTimeout(clearInterval(pop), 31000)
 }
-
-
 
 startGame.addEventListener("click", start)
 
@@ -111,3 +109,27 @@ window.addEventListener("click", (e) => {
 },10);
 
 
+
+const resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", () => {
+        scoreBoard.textContent = 0;
+        timerdisplay.innerHTML = 30;
+        let resetTime = 29;
+    const countdown2 = () => {
+    timerdisplay.textContent = resetTime
+    resetTime--
+    }
+
+        function restart() {
+            console.log(restart)
+            timeUp = false;
+            score = 0;
+            pop();
+            const timer = setInterval(countdown, 1000);
+            const stopTimer = () => {
+                clearInterval(timer)
+            }
+            setTimeout(stopTimer, 31000)
+            setTimeout(clearInterval(pop), 31000)
+        }
+});

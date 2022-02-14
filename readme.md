@@ -5,7 +5,7 @@ Its everyone's childhood favorite. Use a wooden mallet to whack a mole back into
 Become the envy of all your friends with a trophy from this classic.
 
 *****Tech Stack*****
-html, css, javascript, dom, paint.net, mp3
+html, css, javascript, paint.net, mp3
 
 *****MVP*****
 Render game screen displaying the start button, canvas, turn counter, and player high score
@@ -15,7 +15,7 @@ Render a mole that can move up and down the Y axis and side to side on the X axi
 Record the most hits` on the mole in the before the timer ends 
 Render next level where the mole's movement speed is increased
 
-(Post - rather than making the game two players I opted to have it record the high score of each player.  This made more sense since the game would be played from the same computer where the mouse is shared)
+*Rather than making the game two players I opted to have it record the high score of each player.  This made more sense since the game would be played from the same computer where the mouse is shared
 
 *****Stretch Goals*****
 Render coin collector to purchase level up items
@@ -25,8 +25,10 @@ Render shop to purchase level up items
 *****Potential Roadblocks*****
 creating image that can appear to grow and shrink into the moles hiding place.
 
-(Post - The biggest challenge was rendering a mallet that when striking an object would register a hit since the pointer position was pushed away from the side of the mallet.
+*The biggest challenge was rendering a mallet that when striking an object would register a hit since the pointer position was pushed away from the side of the mallet
 
 {Reference project1 lines 100-111: KODAKTIF youtube video was used to render the rotating mallet function}
 
-![](2022-02-04-10-19-54.png)
+wireframe:![](2022-02-04-10-19-54.png)
+
+link to game: https://professorsurf.github.io/Project1/

@@ -13,16 +13,28 @@
 </head>
 <body>
     <h1>Whack-a-Mole</h1>
-<div class="gamedisplay">
-    <div>High Score:</div>
-        <p class="highscore">0</p>
-    <div>Your Score:</div>
-        <p class="score">0</p>
-    <div>Seconds Left : <p class="timer">30</p>
+    <h2>Rules are simple: whack'em and stack'em!</h2>
+<div class ="topsection">
+    <div class="directions"><b>Directions</b> 
+        <li>The object is to hit as many moles as possible</li>
+        <li>Use your mouse pointer to steer the mallet</li>
+        <li>Click your mouse to swing the mallet</li>
+        <li>To begin hit the START button</li>
+        <li>The moles will randomly pop up for 30 seconds </li>
+        <li>Once the timer reaches 0 hit the RESET button</li>
+        <li>Another player can go or you can play again</li>
+        <li>Do your best to set the new high score!</li>
     </div>
+        <button id="startGame">Start!</button>
+    <div class="gamedisplay">
+        <div>High Score:</div>
+        <p class="highscore">0</p>
+        <div>Your Score:</div>
+        <p class="score">0</p>
+        <div>Seconds Left : <p class="timer">30</p></div>
+    </div>  
+    <button id='reset-button'>Reset Game</button>
 </div>
-    <button id="startGame">Start!</button>
-
     <img src="./mallet.png" class="mallet"> 
 
     <div class="game">
